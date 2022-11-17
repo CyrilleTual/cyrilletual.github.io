@@ -50,7 +50,6 @@ figure {
 
 a {
   text-decoration: none;
-  color: #fff;
 }
 
 img {
@@ -103,6 +102,9 @@ img {
 header {
   background-color: #96b011;
   text-align: center;
+  color: #fff;
+}
+header a {
   color: #fff;
 }
 
@@ -234,6 +236,9 @@ footer {
   background-color: #879e0f;
   margin-top: 30px;
 }
+footer a {
+  color: #fff;
+}
 
 .infos {
   display: flex;
@@ -249,6 +254,7 @@ footer {
   width: 48%;
   padding: 30px 0;
   text-align: center;
+  text-transform: uppercase;
   align-items: center;
   opacity: 0.5;
 }
@@ -322,6 +328,7 @@ footer {
   margin-top: 30px;
   color: white;
   text-transform: uppercase;
+  font-family: "Amaranth", sans-serif;
 }
 .liensFooter li {
   padding: 8px 0;
@@ -596,6 +603,7 @@ main {
 }
 .page_product form .wishList::before {
   font-family: FontAwesome;
+  color: #e7877a;
   display: inline-block;
   margin: 0 5px;
   content: "\f004";

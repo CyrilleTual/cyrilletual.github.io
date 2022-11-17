@@ -130,7 +130,6 @@ figure {
 
 a {
   text-decoration: none;
-  color: $txtColorHeaderNavLink;
 }
 
 img {
@@ -187,6 +186,9 @@ header {
   background-color: $bgHeaderFooter;
   text-align: center;
   color: $txtColorHeaderNavLink;
+  a {
+    color: $txtColorHeaderNavLink;
+  }
 }
 
 .angleHt {
@@ -297,6 +299,9 @@ header {
 footer {
   background-color: $bgReassurance;
   margin-top: 30px;
+  a {
+    color: $txtColorHeaderNavLink;
+  }
 }
 
 // ************  partie Haute *************
@@ -312,6 +317,7 @@ footer {
     width: 48%;
     padding: 30px 0;
     text-align: center;
+    text-transform: uppercase;
     align-items: center;
     opacity: 0.5;
     &::before {
@@ -371,6 +377,7 @@ footer {
     margin-top: 30px;
     color: white;
     text-transform: uppercase;
+    font-family: $policeTitle;
   }
   li {
     padding: 8px 0;
@@ -662,6 +669,7 @@ main {
       text-transform: none;
       &::before {
         font-family: FontAwesome;
+        color: $coeur;
         display: inline-block;
         margin: 0 5px;
         content: "\f004 ";
