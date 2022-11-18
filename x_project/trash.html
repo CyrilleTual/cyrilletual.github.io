@@ -1,0 +1,99 @@
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <User-componant :familly="familly" :tata="users" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./main.js" type="module"></script>
+
+</html>
+
+
+<!-- **************************************************************************************************************** -->
+import UserComponant from './componantes/UserComponant.js';
+
+new Vue({
+
+components: { UserComponant },
+data() {
+return {
+familly: ['Djo', 'Bob', 'Pierre', 'Wisky'],
+users: [
+{firstName: 'Ouassini ', lastName:'Bahraoui', class: 'life78', formation:'true'},
+{firstName: 'Badr-eddine ', lastName:'Belaid', class: 'life78', formation:'false'},
+{firstName: 'Marie ', lastName:'Garnier', class: 'life78', formation:'true'},
+{firstName: 'Coralie ', lastName:'Girardi', class: 'life78', formation:'true'},
+{firstName: 'Emilie ', lastName:'Hache', class: 'life78', formation:'true'},
+{firstName: 'Elie ', lastName:'Iniesta', class: 'life78', formation:'false'},
+{firstName: 'The9 ', lastName:'Labadie', class: 'life78', formation:'true'},
+{firstName: 'Christian ', lastName:'Nguyen', class: 'life78', formation:'false'},
+{firstName: 'Johan ', lastName:'Peyracchia', class: 'life78', formation:'true'},
+{firstName: 'Kevinn ',lastName:'Ragot-colin', class: 'life78', formation:'false'},
+{firstName: 'Mathieu ', lastName:'Roch', class: 'life78', formation:'false'},
+{firstName: 'Nassurdine ', lastName:'Soule', class: 'life78', formation:'false'},
+{firstName: 'Cyrille ', lastName:'Tual', class: 'life78', formation:'false'},
+]
+}
+}
+}).$mount('#app')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ********************************************************************************************************************** -->
+export default Vue.component('UserComponant', {
+
+// Le template HTML
+template: `
+<div>
+    <ul>
+        <li v-for="mb of familly">{{mb}}</li>
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Class</th>
+                <th>Formation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="items of tata">
+                <td v-for="item of items">{{ item }} </td>
+                <button @click="items.formation=!items.formation"> Mise à jour </button>
+            </tr>
+        </tbody>
+    </table>
+</div>
+`, // Attention à la virgule.. facile de l'oublier..
+props: {
+tata: Array,
+familly: Array,
+},
+});
+
+<!-- ***************************************************************************************************************************** -->
