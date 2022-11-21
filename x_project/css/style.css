@@ -599,7 +599,7 @@ main {
   font-size: 1.6rem;
   border: 1px solid lightgrey;
   padding: 10px;
-  background: linear-gradient(90deg, rgb(255, 255, 255) calc(100% - 20px), rgb(164, 149, 149) calc(100% - 20px), rgb(164, 149, 149) calc(100% - 19px), #f2f2f2 20px);
+  background: linear-gradient(90deg, rgb(255, 255, 255) calc(100% - 21px), rgb(164, 149, 149) calc(100% - 21px), rgb(164, 149, 149) calc(100% - 20px), #f2f2f2 20px);
 }
 .page_product .formulaires div {
   font-size: 4rem;
