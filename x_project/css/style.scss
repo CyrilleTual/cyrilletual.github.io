@@ -1,0 +1,796 @@
+@import url("https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+
+$policeDefault: "Open Sans", sans-serif; // police google importée
+$policeTitle: "Amaranth", sans-serif;
+
+$policeSize: (
+  body: 1.6rem,
+  noel: 4rem,
+  grosTitre: 3.2rem,
+  moyenTitre: 2.5rem,
+  petitTitre: 2rem,
+  prixPanierHeader: 3rem,
+  prixDansPage: 2.4rem,
+  prixPageProduct: 4rem,
+);
+
+$breakPoints: (
+  mobile: 768px,
+  // mode mobile jusqu'à 768px
+  tablet: 1025px,
+  // mode tablet jusqu'à 1024 px
+);
+
+// ***************************  Les couleurs du site *******************
+
+$txtColorDefault: #666; //Texte par défaut
+$bgDefault: #f2f2f2; //fond par défaut
+$bgHeaderFooter: #96b011; // fond header et footer
+$txtColorTitle: #96b011; //titre
+$txtColorHeaderNavLink: #fff; // texte header et lien nav
+$bgLienNavHover: rgba(255, 255, 255, 0.2); //fond lien nav en hover
+$traitsDerriereTitres: rgba(
+  176,
+  144,
+  103,
+  0.3
+); //Trait vert derrire certains titres
+$bgButtonVoirProduit: #b09067; //fond boutons "voir ce produit" et "ajouter au panier"
+$bgButtonVoirProduitHover: rgba(
+  176,
+  144,
+  103,
+  0.75
+); //fond boutons (hover) "voir ce produit" et "ajouter au panier"
+$bgLivraisonEtFooter: rgba(
+  0,
+  0,
+  0,
+  0.1
+); //fond "Livraison offerte..." et la 3ème partie du footer (avec le logo 3wa)
+$bgPanierMobile: #96b011; //fond élément panier (version mobile)
+$etoile: #ffdc0f; //couleur étoile
+$coeur: #e7877a; //couleur coeur
+$bgReassurance: #879e0f; //fond barre de rassurance
+$bgDansAbout: rgba(150, 176, 17, 0.2); //fond vert dans about
+$bgTitres: rgba(255, 255, 255, 0.2);
+
+// *******************  mixins *******************************
+
+// **************** application d'une image de fond *******
+@mixin imageFond($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+// ***************  Flex mobile firts ***************
+@mixin flex() {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+// ******************* fin des variables ******************
+
+/**********************************************************
+ _____ _       _           _ 
+|  __ | |     | |         | |
+| |  \| | ___ | |__   __ _| |
+| | __| |/ _ \| '_ \ / _` | |
+| |_\ | | (_) | |_) | (_| | |
+ \____|_|\___/|_.__/ \__,_|_|*/
+
+// *******************************************************
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  max-width: 1100px;
+  // min-width: 200px;
+  margin: auto;
+}
+
+body {
+  font-size: map-get($policeSize, body);
+  font-family: $policeDefault;
+  margin: 0; /*enleve la marge autour de la page */
+  background-color: #f2f2f2;
+  color: #666;
+}
+
+section {
+  background-color: white;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  font-family: $policeTitle;
+  color: $txtColorTitle;
+}
+h1 {
+  font-size: map-get($policeSize, grosTitre);
+}
+
+ul {
+  padding: 10px 0px;
+  list-style: none;
+}
+
+figure {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: inline-block;
+}
+
+.clear {
+  clear: both;
+}
+
+.button {
+  color: $txtColorHeaderNavLink;
+  background-color: $bgButtonVoirProduit;
+  text-transform: uppercase;
+  padding: 20px 20px;
+  &:hover {
+    background-color: $bgButtonVoirProduitHover;
+  }
+}
+
+// ********************************************************************************
+// ****  ligne  avant les titres horizontal *** H3 page index ******************
+.page_index h3,
+.page_listing h2 {
+  width: 100%;
+  overflow: hidden; // pour cacher ce qui va dépasser des 100% width
+  &::before,
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 100%; // si pas de texte
+    margin: 0 1rem 0 -100%; // si texte occupe 100% la ligne est repoussee ecite passage à la ligne
+    vertical-align: middle;
+    border-bottom: 1px solid;
+  }
+  &::after {
+    margin: 0 -100% 0 1rem;
+  }
+}
+
+// **********************************************************************************
+/*
+  _                    _           
+ | |                  | |          
+ | |__   ___  __ _  __| | ___ _ __ 
+ | '_ \ / _ \/ _` |/ _` |/ _ | '__|
+ | | | |  __| (_| | (_| |  __| |   
+ |_| |_|\___|\__,_|\__,_|\___|_|   
+
+*/
+
+header {
+  @include imageFond("../img/bg.jpg");
+  background-color: $bgHeaderFooter;
+  text-align: center;
+  color: $txtColorHeaderNavLink;
+  a {
+    color: $txtColorHeaderNavLink;
+  }
+}
+
+.angleHt {
+  width: 95px;
+  position: absolute;
+  right: 0px;
+  display: none;
+  @media screen and (min-width: map-get($breakPoints, mobile)) {
+    display: block;
+    float: right;
+  }
+}
+
+.bandeau {
+  padding: 10px;
+  background-color: $bgLivraisonEtFooter;
+}
+
+.blocHeader {
+  // @include imageFond("../img/bg.jpg");
+  padding: 130px 0 0px 0;
+  @include flex();
+  @media screen and (min-width: map-get($breakPoints, mobile)) {
+    padding: 20px 20px;
+  }
+  .headerHt {
+    @media screen and (min-width: map-get($breakPoints, mobile)) {
+      @include flex();
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      padding: 20px 0;
+    }
+  }
+
+  // *****************  lien nav *****************
+
+  nav {
+    width: 100%;
+  }
+  ul {
+    @include flex();
+    li {
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      a {
+        padding: 7px;
+        &:hover {
+          background-color: $bgLienNavHover;
+        }
+      }
+      @media screen and (min-width: map-get($breakPoints, mobile)) {
+        margin-bottom: 10px;
+      }
+    }
+    @media screen and (min-width: map-get($breakPoints, mobile)) {
+      flex-direction: row;
+      margin-bottom: 0;
+    }
+  }
+  // *******************   pannier ****************
+  .lienPanier {
+    display: block;
+    position: fixed;
+    background-color: $bgPanierMobile;
+    font-size: map-get($policeSize, prixPanierHeader);
+    top: 60px;
+    left: 0px;
+    z-index: 10;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+    border-left: none;
+    border-radius: 0px 200px 200px 0px;
+    @media screen and (min-width: map-get($breakPoints, mobile)) {
+      display: flex;
+      align-items: center;
+      position: static;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      padding-bottom: 0;
+    }
+    i {
+      border: solid white 1px;
+      border-radius: 100% 100%;
+      padding: 10px;
+    }
+    span.txt {
+      font-size: map-get($policeSize, body);
+      vertical-align: middle;
+      margin-right: 10px;
+
+      display: none;
+      @media screen and (min-width: map-get($breakPoints, mobile)) {
+        display: inline;
+      }
+    }
+    @media screen and (min-width: map-get($breakPoints, mobile)) {
+    }
+  }
+}
+/*
+   __            _            
+  / _|          | |           
+ | |_ ___   ___ | |_ ___ _ __ 
+ |  _/ _ \ / _ \| __/ _ | '__|
+ | || (_) | (_) | ||  __| |   
+ |_| \___/ \___/ \__\___|_|   
+                              
+*/
+
+footer {
+  @include imageFond("../img/bg.jpg");
+  background-color: $bgHeaderFooter;
+  margin-top: 30px;
+  a {
+    color: $txtColorHeaderNavLink;
+  }
+}
+
+// ************  partie Haute *************
+
+.hautLarge {
+  background-color: $bgReassurance;
+}
+
+.infos {
+  @include flex();
+  background-color: $bgReassurance;
+
+  flex-direction: row;
+  justify-content: space-around;
+
+  a {
+    display: block;
+    width: 48%;
+    padding: 30px 0;
+    text-align: center;
+    text-transform: uppercase;
+    align-items: center;
+    opacity: 0.5;
+    &::before {
+      font-family: FontAwesome;
+      font-size: 30px;
+      display: block;
+      margin: 10px auto 10px auto;
+    }
+    &:first-child::before {
+      content: "\f023";
+    }
+    &:nth-child(2)::before {
+      content: "\f0d1";
+    }
+    &:nth-child(3)::before {
+      content: "\f3d1";
+    }
+    &:nth-child(4)::before {
+      content: "\f879";
+    }
+    &:nth-child(5)::before {
+      content: "\f058";
+    }
+    &:hover {
+      opacity: 1;
+    }
+    @media screen and (min-width: map-get($breakPoints, mobile)) {
+      width: 15%;
+    }
+  }
+}
+
+// -**********************   partie milieu  ************************
+
+.liensFooter {
+  margin-top: 20px;
+  text-align: center;
+  @include flex();
+  .navFooter {
+    padding: 50px 30px;
+    @media screen and (min-width: map-get($breakPoints, mobile)) {
+      width: 100%;
+      @include flex();
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    @media screen and (min-width: map-get($breakPoints, tablet)) {
+      justify-content: space-around;
+    }
+  }
+  @media screen and (min-width: map-get($breakPoints, mobile)) {
+    width: 100%;
+  }
+  // div {
+  //   margin-bottom: 40px;
+  // }
+  strong {
+    margin-top: 30px;
+    color: white;
+    text-transform: uppercase;
+    font-family: $policeTitle;
+    font-weight: normal;
+    font-size: map-get($policeSize, petitTitre);
+  }
+  li {
+    padding: 8px 0;
+  }
+  a {
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+// *********************  partie basse **************
+.copyrightLarge {
+  box-shadow: inset 0 0 0 100vmax $bgLivraisonEtFooter;
+}
+
+.copyright {
+  padding: 15px 15px 30px 15px;
+  text-align: center;
+  color: #fff;
+  // @include imageFond("../img/bg.jpg");
+  // pour creer layer assombrissant :
+  // box-shadow: inset 0 0 0 100vmax $bgLivraisonEtFooter;
+  p {
+    margin-bottom: 5px;
+  }
+  img {
+    width: 60px;
+  }
+  a {
+    text-decoration: underline;
+  }
+}
+// *************************************************************************
+//                   _
+//                  (_)
+//   _ __ ___   __ _ _ _ __
+//  | '_ ` _ \ / _` | | '_ \
+//  | | | | | | (_| | | | | |
+//  |_| |_| |_|\__,_|_|_| |_|
+
+main {
+  line-height: 1.8;
+}
+// *********************   bandeau de pub  et slider *******************
+
+.page_index {
+  h1,
+  h2 {
+    font-size: map-get($policeSize, grosTitre);
+  }
+  h3 {
+    font-size: map-get($policeSize, moyenTitre);
+  }
+}
+
+.page_index aside,
+.page_index .sliderSlick {
+  display: none;
+  @media screen and (min-width: map-get($breakPoints, mobile)) {
+    display: block;
+    text-align: center;
+    strong {
+      display: block;
+      margin: 20px 0;
+      color: $txtColorTitle;
+      font-size: map-get($policeSize, noel);
+      font-family: $policeTitle;
+      font-weight: normal;
+    }
+    .slick-prev {
+      left: 20px;
+      z-index: 1;
+    }
+    .slick-next {
+      right: 20px;
+    }
+    .slick-dots li button:before {
+      font-size: 15px;
+    }
+    small {
+      display: inline-block;
+      margin: 5px 0 30px 0;
+    }
+  }
+}
+
+// *********************************************************************
+.choiseThe {
+  margin-top: 30px;
+  padding: 20px;
+  .itemsWrapper {
+    padding: 15px 0;
+    @include flex();
+    @media screen and (min-width: map-get($breakPoints, tablet)) {
+      flex-wrap: nowrap;
+    }
+    flex-direction: row;
+    justify-content: center;
+    &:hover a {
+      opacity: 0.5;
+    }
+    a {
+      width: 48%;
+      figure {
+        margin: 0;
+        padding: 0;
+        color: #666;
+        text-align: center;
+        font-family: $policeTitle;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.page_index .prix {
+  font-weight: 700;
+}
+
+// ******************   notre selection **************
+.selection {
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+
+  .wrapSelection {
+    @media screen and (min-width: map-get($breakPoints, tablet)) {
+      @include flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+    }
+  }
+
+  article {
+    padding: 0 15px;
+    @media screen and (min-width: map-get($breakPoints, tablet)) {
+      width: 33%;
+    }
+  }
+
+  figcaption {
+    font-family: $policeTitle;
+
+    font-size: map-get($policeSize, petitTitre);
+  }
+
+  .prix {
+    font-size: map-get($policeSize, prixDansPage);
+  }
+  a {
+    @extend .button;
+    display: inline-block;
+  }
+}
+
+//            _ _     _   _
+//           | (_)   | | (_)
+//   _ __    | |_ ___| |_ _ _ __   __ _
+//  | '_ \   | | / __| __| | '_ \ / _` |
+//  | |_) _  | | \__ | |_| | | | | (_| |
+//  | .__(_) |_|_|___/\__|_|_| |_|\__, |
+//  | |                            __/ |
+//  |_|                           |___/
+// *****************page listing ***************
+
+.page_listing h2 {
+  text-align: left;
+  margin-bottom: 0px;
+  &::before {
+    margin-right: 0px;
+  }
+  & + p {
+    text-align: left;
+    margin-top: 0px;
+  }
+}
+
+.page_listing h3 {
+  color: $txtColorDefault;
+}
+
+//                                  _            _
+//                                 | |          | |
+//   _ __       _ __  _ __ ___   __| |_   _  ___| |_
+//  | '_ \     | '_ \| '__/ _ \ / _` | | | |/ __| __|
+//  | |_) _    | |_) | | | (_) | (_| | |_| | (__| |_
+//  | .__(_)   | .__/|_|  \___/ \__,_|\__,_|\___|\__|
+//  | |        | |
+//  |_|        |_|
+
+.page_product {
+  article {
+    h1 {
+      font-size: map-get($policeSize, grosTitre);
+    }
+    background-color: #fff;
+    margin-top: 30px;
+    padding: 30px 20px;
+  }
+  .unchecked {
+    color: $txtColorDefault;
+  }
+  .checked {
+    color: rgb(255, 217, 0);
+  }
+  .description {
+    text-align: center;
+
+    @include flex();
+    width: 100%;
+
+    .wrapperDesignation {
+      color: $txtColorDefault;
+      p {
+        font-family: $policeTitle;
+        font-size: map-get($policeSize, petitTitre);
+        margin-top: 5px;
+      }
+
+      h2 {
+        color: $txtColorDefault;
+        font-size: map-get($policeSize, moyenTitre);
+        margin: 0px;
+      }
+      @media screen and (min-width: map-get($breakPoints, mobile)) {
+        width: 50%;
+        text-align: left;
+
+        & .ref {
+          display: inline-block;
+          text-align: center;
+        }
+      }
+    }
+    .wrapperRatings {
+      margin-top: 20px;
+      color: $txtColorTitle;
+      @media screen and (min-width: map-get($breakPoints, mobile)) {
+        width: 50%;
+        margin-top: 0px;
+        text-align: right;
+      }
+      .text {
+        color: $bgHeaderFooter;
+      }
+    }
+    @media screen and (min-width: map-get($breakPoints, mobile)) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  .description img {
+    @media screen and (min-width: map-get($breakPoints, mobile)) {
+      max-width: 50%;
+      margin-top: 20px;
+    }
+  }
+
+  .formulaires {
+    width: 100%;
+    select {
+      width: 100%;
+      font-size: map-get($policeSize, body);
+      border: 1px solid lightgrey;
+      padding: 10px;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 1) calc(100% - 20px),
+        rgba(164, 149, 149, 1) calc(100% - 20px),
+        rgba(164, 149, 149, 1) calc(100% - 19px),
+        $bgDefault 20px
+      );
+    }
+    div {
+      font-size: 4rem;
+      font-family: $policeTitle;
+      width: 100%;
+    }
+
+    button {
+      @extend .button;
+      margin-top: 30px;
+      font-size: map-get($policeSize, body);
+      width: 100%;
+      border: none;
+      color: #f2f2f2;
+    }
+    .wishList {
+      width: fit-content;
+      color: $txtColorTitle;
+      background-color: #fff;
+      margin: 10px 0 0 0;
+      text-transform: none;
+      &::before {
+        font-family: FontAwesome;
+        color: $coeur;
+        display: inline-block;
+        margin: 0 5px;
+        content: "\f004 ";
+      }
+      &:hover {
+        color: $txtColorHeaderNavLink;
+      }
+    }
+    @media screen and (min-width: map-get($breakPoints, mobile)) {
+      width: 50%;
+      text-align: right;
+      margin-top: 20px;
+    }
+  }
+  & p:nth-last-child(-n + 2) {
+    font-weight: bold;
+  }
+}
+
+////////////////////////////////////////////////////////////
+//             ___  _                 _
+//            / _ \| |               | |
+//  _ __     / /_\ | |__   ___  _   _| |_
+// | '_ \    |  _  | '_ \ / _ \| | | | __|
+// | |_) _   | | | | |_) | (_) | |_| | |_
+// | .__(_)  \_| |_|_.__/ \___/ \__,_|\__|
+// | |
+// |_|          ////////////////////////////////////////////
+
+.page_about {
+  section {
+    margin-top: 30px;
+    padding: 30px 20px;
+    h1 {
+      font-size: map-get($policeSize, grosTitre);
+      text-align: center;
+    }
+    h2 {
+      color: $txtColorDefault;
+      font-size: map-get($policeSize, moyenTitre);
+      margin: 0px;
+      text-align: left;
+    }
+    h3 {
+      text-align: left;
+    }
+
+    .imgLeft {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .imgRight {
+      float: right;
+      margin-left: 20px;
+    }
+
+    .concept {
+      background-color: $bgDansAbout;
+      padding: 45px 15px;
+      text-align: center;
+
+      h3 {
+        color: $txtColorDefault;
+        text-align: center;
+
+        &::before {
+          content: "";
+          background-size: cover;
+          position: relative;
+          margin: 20px auto 20px auto;
+          padding: 5px;
+          display: block;
+          width: 70px;
+          height: 70px;
+          display: block;
+          background-image: url("../img/concept/1.svg");
+        }
+        &.deux::before {
+          background-image: url("../img/concept/2.svg");
+        }
+        &.trois::before {
+          background-image: url("../img/concept/3.svg");
+        }
+      }
+      @media screen and (min-width: map-get($breakPoints, tablet)) {
+        @include flex();
+        flex-direction: row;
+        flex-wrap: nowrap;
+        & div {
+          width: 32%;
+        }
+      }
+    }
+  }
+}
