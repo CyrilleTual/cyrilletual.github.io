@@ -130,12 +130,12 @@
             <h2 class="mb-0">Mon portfolio</h2>
             <h3 class="fw-light fs-5">Projets réalisés</h3> <p>Contactez-moi pour obtenir les accès administration ou pour accès au trading-helper.</p>
 
-            <div class="row gy-4 gy-md-0 mt-4" style="justify-content: center;">
+            <div class="row gy-4 gy-md-0 mt-4 " style="justify-content: center;">
 
                 <!-- projet 1 Vincent  -->
-                <div class="col-xs-12 col-md-6   ">
-                    <div class="card">
-                        <img src="./img/vincent/landing-1.jpg" class="card-img-top" alt="...">
+                <div class="col-xs-12 col-md-6 rounded-3   ">
+                    <div class="card h-100 rounded-3" >
+                        <img src="./img/vincent/landing-1.jpg" class="card-img-top  rounded-3" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Vincent Petit Apiculteur</h5>
                             <p class="card-text">Site vitrine. Tout peut être facilement mis à jour grâce à une interface d'administration. <br /> Réalisé en html/css/php et quelques lignes de js.
@@ -145,7 +145,7 @@
                             </p>
                             <div style="display: flex; justify-content: space-around ;">
                                 <a class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#infoProjet1"
-                                    aria-controls="infoProjet1">En savoir plus</a>
+                                    aria-controls="infoProjet1">En voir plus</a>
                                 <a class="btn btn-primary" href="https://vincentpetit.000webhostapp.com/"  
                                     target="_blank">Voir le site</a>
                             </div>
@@ -206,7 +206,7 @@
                 <!-- projet 2 Trading Tool -->
                 <div class="col-xs-12 col-md-6   ">
                     <div class="card">
-                        <img src="./img/tradingTool/tradingTool_1.jpg" class="card-img-top" alt="...">
+                        <img src="./img/tradingTool/tradingTool_1.jpg" class="card-img-top rounded-3" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Trading Tool</h5>
                             <p class="card-text">Application pour traders amateurs. </br>
@@ -223,7 +223,7 @@
                             <div style="display: flex; justify-content: space-around ;">
                                 <a class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#infoProjet2"
                                     aria-controls="infoProjet2">En
-                                    savoir plus</a>
+                                    voir plus</a>
                                 <a class="btn btn-primary" href="https://mytradingtool.netlify.app/"
                                     target="_blank">Voir le site</a>
                             </div>
@@ -290,6 +290,96 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- projet 3 NextJs blog -->
+                <div class="col-xs-12 col-md-6 position-relative ">
+                    <div class="card  mt-3 h-100">
+                        <img src="./img/nextjs/landing.jpg" class="card-img-top  rounded-3" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Blog NextJs</h5>
+                            <p class="card-text">Exercice NextJs. </br>
+                                NextJs - TypeScript - ReactQuery - Axios - Prisma</p>
+                
+                            <p>
+                                Base de données hébergée chez <a href="https://neon.tech/" target="_blank">neon.tech/</a>.</br>
+                                Aplication hébergée chez <a href="https://vercel.com/" target="_blank">vercel</a><br />
+                                Images stockées dans le service "blob" également chez <a href="https://vercel.com/" target="_blank">vercel</a><br />(mise à jour via
+                                GitHub)
+                            </p>
+                
+                
+                
+                            <div style="display: flex; justify-content: space-around ;">
+                                <a class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#infoProjet3"
+                                    aria-controls="infoProjet3">En
+                                    voir plus</a>
+                                <a class="btn btn-primary" href="https://nextjs-blog-cyrille.vercel.app/" target="_blank">Voir le site</a>
+                            </div>
+                            <div style="display: flex; justify-content: space-around ;">
+                                <a class="btn btn-secondary mt-3" href="https://github.com/CyrilleTual/nextjs-blog"
+                                    target="_blank">
+                                    code  
+                                    github</a>
+                                
+                            </div>
+                
+                
+                
+                
+                        </div>
+                        <div class="offcanvas offcanvas-bottom h-100" tabindex="-1" id="infoProjet3" aria-labelledby="titelProjet3">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="titelProjet3">exercice NextJs</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <!-- Carousel -->
+                                <div id="carouselProject3" class="carousel slide shadow h-100" data-bs-ride="carousel"
+                                    data-bs-touch="true">
+                                    <div class="carousel-inner h-100">
+                                        <div class="carousel-item h-100 active" data-bs-interval="2000">
+                                            <img src="./img/nextjs/landing.jpg" class="d-block w-100" alt="Image trade 1">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Slide 1</h5>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item h-100" data-bs-interval="2000">
+                                            <img src="./img/nextjs/redaction-article.jpg" class="d-block w-100" alt="Image trade 2">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Slide 2</h5>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item h-100">
+                                            <img src="./img/nextjs/commentaires.jpg" class="d-block w-100" alt="Image trade 3">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Slide 3</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselProject3"
+                                        data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon  bg-primary" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselProject3"
+                                        data-bs-slide="next">
+                                        <span class="carousel-control-next-icon  bg-primary" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
 
             </div>
         </div>
