@@ -604,14 +604,19 @@
         </script>
     <script>
         window.addEventListener('DOMContentLoaded', function () {
-            setTimeout(function () { // Small delay as a precaution
+            setTimeout(function () {
                 const topElement = document.getElementById('top');
                 if (topElement) {
                     topElement.focus();
+                    window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: 'smooth' // Optional but recommended
+                    });
                 } else {
                     console.error("Element with ID 'top' not found!");
                 }
-            }, 100); // 10 millisecond delay
+            }, 500); // Slightly reduced delay (experiment with this)
         });
     </script>
 
